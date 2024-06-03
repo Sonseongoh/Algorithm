@@ -1,21 +1,18 @@
 function solution(babbling) {
-    const sounds = ["aya", "ye", "woo", "ma"];
-    
-    let count = 0;
-
-    for (let word of babbling) {
-
-        for (let sound of sounds) {
-            if (word.includes(sound)) {
-                word = word.split(sound).join(' ');
-            }
+    let word = ["aya", "ye", "woo", "ma"];
+    let answer = 0;
+    for (let x of babbling) {
+        for (let y of word) {
+            x = x.split(y).join(' ');
         }
-
-        // 남은 부분이 모두 공백인 경우만 유효
-        if (word.trim() === '') {
-            count++;
+      
+        if (x.trim() === '') {
+            answer++;
         }
     }
     
-    return count;
+    return answer
 }
+
+// 1.babbling 에 word 발음이 있는지 확인(for,includes)
+// 2.있다면 해당 단어를 제거해서 모두 제거 되면 정답 +1
