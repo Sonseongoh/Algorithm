@@ -13,7 +13,8 @@ function solution(N, stages) {
                 pass++
             }
         }
-            answer.push([1-(pass/trial),i])
+            answer.push([1-(pass/trial),i])// 실패율 구하기([실패율,스테이지])
+        
     }
     
     answer.sort((a,b)=>b[0]-a[0])
