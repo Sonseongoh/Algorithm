@@ -4,13 +4,14 @@ function solution(participant, completion) {
     let sortedParticipant=participant.sort()
     let sortedCompletion=completion.sort()
     
-    for(let i=0; i<completion.length; i++){
+    for(let i=0; i<participant.length; i++){
         if(sortedCompletion[i]!==sortedParticipant[i]){
-            return sortedParticipant[i]
+            answer=sortedParticipant[i]
+            break;
         }
     }
     
     
-    return sortedParticipant[sortedParticipant.length-1];
+    return answer
 }
 
