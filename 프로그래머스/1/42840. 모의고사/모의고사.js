@@ -1,24 +1,28 @@
 function solution(answers) {
-    const a = [1, 2, 3, 4, 5];
-    const b = [2, 1, 2, 3, 2, 4, 2, 5];
-    const c = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-
-    const scores = [0, 0, 0];
-
-    for (let i = 0; i < answers.length; i++) {
-        if (answers[i] === a[i % a.length]) scores[0]++;
-        if (answers[i] === b[i % b.length]) scores[1]++;
-        if (answers[i] === c[i % c.length]) scores[2]++;
+    let answer = [];
+    let a=[1,2,3,4,5]
+    let b=[2,1,2,3,2,4,2,5]
+    let c=[3,3,1,1,2,2,4,4,5,5]
+    
+    let scores=[0,0,0]
+    
+    for(let i=0; i<answers.length; i++){
+        if(answers[i]===a[i%a.length]) scores[0]++
+        if(answers[i]===b[i%b.length]) scores[1]++
+        if(answers[i]===c[i%c.length]) scores[2]++
     }
+    
+    let max= Math.max(...scores)
 
-    const maxScore = Math.max(...scores);
-    const result = [];
-
-    for (let i = 0; i < scores.length; i++) {
-        if (scores[i] === maxScore) {
-            result.push(i + 1); 
+    
+    for(let j=0; j<scores.length; j++){
+        if(scores[j]===max){
+            answer.push(j+1)
         }
     }
-
-    return result;
+   
+    
+    return answer;
 }
+
+
