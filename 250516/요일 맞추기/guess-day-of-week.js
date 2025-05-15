@@ -3,21 +3,18 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const [m1, d1, m2, d2] = input[0].split(' ').map(Number);
 // Please Write your code here.
 
-const daysInMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const baseDate = new Date(2011, m1 - 1, d1);
 
-let totaldays=0
 
-if(m1===m2){
-    totaldays=d2-d1
-}else{
-    totaldays+=daysInMonth[m1]-d1
-    for(let i=m1+1; i<m2; i++){
-        totaldays+=daysInMonth[i]
-    }
-    totaldays+=d2
-}
+const targetDate = new Date(2011, m2 - 1, d2);
 
-let dayIndex= (0+totaldays)%7
 
-console.log(week[dayIndex])
+const diffDays = Math.round((targetDate - baseDate) / (1000 * 60 * 60 * 24));
+
+
+const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+let dayIndex = (0 + diffDays) % 7;
+if (dayIndex < 0) dayIndex += 7;
+
+console.log(week[dayIndex]);
