@@ -8,7 +8,7 @@ const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 
 let totaldays=0
 
-if(m1=m2){
+if(m1===m2){
     totaldays=d2-d1
 }else{
     totaldays+=daysInMonth[m1]-d1
