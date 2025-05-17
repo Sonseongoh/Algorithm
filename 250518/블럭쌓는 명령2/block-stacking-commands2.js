@@ -20,4 +20,4 @@ for(let i=1; i<=n; i++){
 }
 
 
-console.log(Math.max(...array.slice(1, n + 1)));
+console.log(Math.max(...array));
