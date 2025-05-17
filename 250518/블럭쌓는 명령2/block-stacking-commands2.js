@@ -5,7 +5,7 @@ const segments = input.slice(1, k + 1).map(line => line.split(' ').map(Number));
 
 // Please write your code here.
 let answer =0
-let array=new Array(n+1).fill(0)
+let array=new Array(n+2).fill(0)
 
 
 //k번의 횟수동안 
