@@ -14,7 +14,7 @@ const array = new Array(202).fill(0);
 
 for(let i=0; i<n; i++){
     const[a,b]=segments[i]
-    for(let j=a; j<b-1; j++){
+    for(let j=a; j<b; j++){
         array[j+OFFSET]+=1
     }
 }
