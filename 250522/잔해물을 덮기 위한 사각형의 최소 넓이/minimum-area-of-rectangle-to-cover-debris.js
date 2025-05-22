@@ -8,6 +8,9 @@ const rect2 = input[1].split(' ').map(Number);
 
 let arr =Array.from({length:2001},()=>new Array(2001).fill(0))
 let OFFSET=1000
+let answer=0
+let hasone=false
+
 
 let[x1,y1,x2,y2]=rect1.map(el=>el+OFFSET)
 
@@ -30,6 +33,7 @@ let minX = 2001, maxX = -1, minY = 2001, maxY = -1;
 for(let x=0; x<arr.length; x++){
     for(let y=0; y<arr.length; y++){
         if(arr[x][y]===1){
+            hasone=true
             minX=Math.min(minX,x)
             maxX=Math.max(maxX,x)
             minY=Math.min(minY,y)
@@ -38,7 +42,10 @@ for(let x=0; x<arr.length; x++){
     }
 }
 
-let answer=0
+if(!hasone){
+    console.log(0)
+    return
+}
 answer=(maxX-minX+1)*(maxY-minY+1)
 
 
