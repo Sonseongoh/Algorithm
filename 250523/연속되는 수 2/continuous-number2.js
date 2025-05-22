@@ -9,11 +9,11 @@ let max=0
 let count=1
 for(let i=0; i<n; i++){
     if(arr[i]===arr[i+1]){
-        count++
+        count+=1
         max=count
     }else{
         count=1
-        max=count
+        if(count>max) max=count
     }
 }
 
