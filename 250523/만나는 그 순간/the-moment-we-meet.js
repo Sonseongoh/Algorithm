@@ -44,10 +44,10 @@ for(let t=0; t<maxTime; t++){
     posB=BPath[t]??at(-1)
 
     if(posA===posB){
-        
         console.log(t+1)
-    } 
-        
+        return   
+    }
 }
 
-console.log(APath)
+console.log(-1)
+
