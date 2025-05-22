@@ -10,7 +10,7 @@ let count=1
 for(let i=0; i<n; i++){
     if(arr[i]===arr[i+1]){
         count+=1
-        if(count>max) max=count
+        if(count>=max) max=count
     }else{
         count=1
     }
