@@ -13,6 +13,7 @@ for(let i=0; i<n; i++){
         max=count
     }else{
         count=1
+        max=count
     }
 }
 
