@@ -27,19 +27,15 @@ for (let [v, t] of bData) {
 }
 
 let changeCount = 0;
-let prevLead = 0;
-for (let i = 0; i < aPos.length; i++) {
-    let a = aPos[i];
-    let b = bPos[i];
-
-    let curLead = 0;
-    if (a > b) curLead = 1;
-    else if (a < b) curLead = 2;
-
-    if (curLead !== 0 && curLead !== prevLead) {
-        changeCount++;
-        prevLead = curLead;
+let leader = 0;
+for(let i=0; i<aPos.length; i++){
+    if(aPos[i]>bPos[i]){
+        if(leader===2) changeCount+=1
+        leader=1
+    }else if(aPos[i]<bPos[i]){
+        if(leader===1) changeCount+=1
+        leader=2
     }
 }
 
-console.log(changeCount-1);
+console.log(changeCount);
