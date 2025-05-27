@@ -22,14 +22,21 @@ let dirIdx=dir[d]
 
 for(let i=0; i<t; i++){
     let nx=r+dx[dirIdx]
-    let nc=r+dy[dirIdx]
+    let ny=c+dy[dirIdx]
     if(nx<1||nx>n||ny<1||ny>n){
         if(dirIdx===0){
             dirIdx=1
-        }else if (dIdx === 1) {
-        dIdx = 0;
-        }else if (dIdx === 2) {
-            dIdx = 3;
-        else if (dIdx === 3) dIdx = 2;
+        }else if (dirIdx === 1) {
+            dirIdx = 0;
+        }else if (dirIdx === 2) {
+            dirIdx = 3;
+        }else if (dirIdx === 3) {
+            dirIdx = 2;
+        }
+    }else{
+        r=nx
+        c=ny
     }
 }
+
+console.log(r,c)
