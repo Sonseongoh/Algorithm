@@ -8,8 +8,8 @@ const grid = input.slice(1).map(line => line.trim().split(' '));
 
 let count = 0;
 
-for(let i=0; i<R; i++){
-    for(let j=0; j<C; j++){
+for(let i=1; i<R; i++){
+    for(let j=1; j<C; j++){
         for(let k=i+1; k<R-1; k++){
             for(let l=j+1; l<C-1; l++){
                   if (
