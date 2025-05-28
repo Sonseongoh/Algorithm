@@ -9,16 +9,11 @@ const arr = input[1].split(' ').map(Number);
 let minSum=Infinity
 
 for(let i=0; i<n; i++){
-    let cost=0
+    let total=0
     for(let j=0; j<n; j++){
-        let distance=Math.abs(i-j)
-        let person=arr[j]
-        let moveCost=distance*person
-        cost+=moveCost
+       total += Math.abs(i-j)*arr[j]
     }
-    if(cost<minSum){
-        minSum=cost
-    }
+    if(total<minSum) minSum=total
 }
 
 console.log(minSum)
