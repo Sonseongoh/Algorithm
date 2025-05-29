@@ -8,7 +8,7 @@ const arr = input[1].split(' ').map(Number);
 
 let answer=-Infinity;
 
-for(let i=0; i<n-k; i++){
+for(let i=0; i<=n-k; i++){
     let maxVal=0
     for(let j=i; j<i+k; j++){
         maxVal+=arr[j]
