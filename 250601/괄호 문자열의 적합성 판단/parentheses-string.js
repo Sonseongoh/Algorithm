@@ -8,7 +8,11 @@ let stack=[]
 for(let i=0; i<bracketStr.length; i++){
     if(bracketStr[i]==='('){
         stack.push(bracketStr[i])
-    }else if(stack.length>0&&bracketStr[i]===')'){
+    }else if(bracketStr[i]===')'){
+        if(stack.length===0){
+            console.log('No')
+            return
+        } 
         stack.pop()
     }
 }
