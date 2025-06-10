@@ -4,18 +4,16 @@ const n = Number(input[0]);
 const segments = input.slice(1, 1 + n).map(line => line.split(' ').map(Number));
 
 // Please Write your code here.
-
 segments.sort((a, b) => a[1] - b[1]);
 
-let count = 0;
-let lastEnd = 0;
+let count=0
+let last=0
 
-for (const [l, r] of segments) {
-  // 끝점을 공유하면 겹침 -> l > lastEnd 여야 선택
-  if (l > lastEnd) {
-    count++;
-    lastEnd = r;
-  }
+for(let [x,y] of segments){
+    if(x>last){
+        count++
+        last=y
+    }
 }
 
 console.log(count);
