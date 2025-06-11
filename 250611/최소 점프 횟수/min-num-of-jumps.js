@@ -7,6 +7,7 @@ const nums = input[1].split(' ').map(Number);
 // Please write your code here.
 
 let answer=Infinity
+let minJump=Array(n).fill(Infinity)
 
 function dfs(num,count){
     if(num===n-1){
