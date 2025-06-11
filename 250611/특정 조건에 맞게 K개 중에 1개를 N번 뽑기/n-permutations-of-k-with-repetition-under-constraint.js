@@ -5,25 +5,19 @@ const [k, n] = input[0].split(' ').map(Number);
 
 // Please Write your code here.
 
-let answer=0
 let temp=[]
 
 function dfs(num){
     if(num===n){
-        let ok= true
-        for(let i=2; i<n; i++){
-            if(temp[i]===temp[i-1]&& temp[i]===temp[i-2]){
-                ok=false
-                break;
-            }
-        }
-        if(ok){
-        answer++
-        return;
-        }
+        console.log(temp.join(' '))
+      return
     }
 
     for(let i=1; i<=k; i++){
+
+        let len=temp.length;
+        if(len>=2 && temp[len-1]===i&& temp[len-2]===i) continue
+
         temp.push(i)
         dfs(num+1)
         temp.pop()
@@ -32,4 +26,3 @@ function dfs(num){
 
 dfs(0)
 
-console.log(answer)
