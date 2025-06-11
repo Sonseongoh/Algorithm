@@ -17,9 +17,9 @@ function dfs(num,count){
 
     for (let jump = 1; jump <= nums[num]; jump++) {
         const next = num + jump;
-        if (next < n && cnt + 1 < minJump[next]) {
-            minJump[next] = cnt + 1;  // 더 적은 점프로만 방문
-            dfs(next, cnt + 1);
+        if (next < n && count + 1 < minJump[next]) {
+            minJump[next] = count + 1;  // 더 적은 점프로만 방문
+            dfs(next, count + 1);
         }
     }
 
