@@ -13,7 +13,8 @@ function solution(book_time) {
     const rooms = [];
 
     for (let [start, end] of times) {
-      
+        rooms.sort((a, b) => a - b);
+        
         let reused = false;
 
         for (let i = 0; i < rooms.length; i++) {
