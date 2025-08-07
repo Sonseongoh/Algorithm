@@ -1,25 +1,29 @@
-function solution(maps){
-    let n = maps[0].length-1
-    let m = maps.length-1
-    let queue= [[0,0,1]] //x,y,이동거리
+function solution(maps) {
+    let answer = 0;
+    let n=maps.length
+    let m=maps[0].length
+    let dx=[0,0,-1,1]
+    let dy=[-1,1,0,0]
     
+    let wholeMap=Array.from({length:n},()=>Array(m).fill(0))
+    let queue=[[0,0]]
+    wholeMap[0][0]=1
     while(queue.length){
-       let[x,y,move] = queue.shift()
-        if(x===n && y===m) return move
-        if(maps[y][x]===0) continue
-        maps[y][x]=0
+        let[x,y]=queue.shift()
+        if(x===n-1 && y===m-1){
+            return wholeMap[x][y]
+        }
         
-        if (x-1 >= 0 && maps[y][x-1]) queue.push([x-1,y,move+1]);
-        if (x+1 <= n && maps[y][x+1]) queue.push([x+1,y,move+1]);
-        if (y-1 >= 0 && maps[y-1][x]) queue.push([x,y-1,move+1]);
-        if (y+1 <= m && maps[y+1][x]) queue.push([x,y+1,move+1]);
+        for(let i=0; i<4; i++){
+            let nx=x+dx[i]
+            let ny=y+dy[i]
+            if(nx < n && nx >= 0 && ny >= 0 && ny < m && maps[nx][ny]===1 && wholeMap[nx][ny]===0){
+                wholeMap[nx][ny]=wholeMap[x][y]+1
+                queue.push([nx,ny])
+            }
         
+        }
     }
     
-    
-     return -1;
+    return -1;
 }
-
-
-
-
