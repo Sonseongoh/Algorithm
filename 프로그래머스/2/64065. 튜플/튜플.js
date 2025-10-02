@@ -1,19 +1,17 @@
 function solution(s) {
-    let sets = s.slice(2, -2).split("},{")
-        .map(str => str.split(",").map(Number));
+    let answer = [];
+    
+    let sets=s.replaceAll('{{','').replaceAll('}}','').split('},{').map(n=>n.split(',').map(el=>Number(el)))
     
     sets.sort((a, b) => a.length - b.length);
     
-    let answer = [];
-    let seen = new Set();
-
-    for (let set of sets) {
-        for (let num of set) {
-            if (!seen.has(num)) {
-                seen.add(num);
-                answer.push(num);
+    for(let x of sets){
+        for(let el of x){
+            if(!answer.includes(el)){
+                answer.push(el)
             }
         }
     }
-    return answer;
+    
+    return answer
 }
