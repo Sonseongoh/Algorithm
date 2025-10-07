@@ -1,24 +1,21 @@
 function solution(N, stages) {
     let answer = [];
     
-    
     for(let i=1; i<N+1; i++){
-        let trial=0;
-        let pass=0;
+        let trial=0
+        let pass=0
         for(let j=0; j<stages.length; j++){
-             if(stages[j]>=i){
-                trial++
-            }
-             if(stages[j]>i){
+            if(stages[j]>i){
                 pass++
             }
+            if(stages[j]>=i){
+                trial++
+            }
         }
-            answer.push([1-(pass/trial),i])// 실패율 구하기([실패율,스테이지])
         
+        let failure=1-(pass/trial)
+        answer.push([i,failure])
     }
-    
-    answer.sort((a,b)=>b[0]-a[0])
-    return answer.map(el=>el[1])
+    answer.sort((a,b)=>b[1]-a[1])
+    return answer.map(el=>el[0]);
 }
-
-//answer의 answer[0][k] 를 비교해서 큰순으로 정렬 
